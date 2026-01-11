@@ -1,0 +1,271 @@
+/* =========================
+   GLOBAL RESET + BACKGROUND
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, #c6e6ff, transparent 40%),
+    radial-gradient(circle at bottom right, #d5f5e3, transparent 40%),
+    linear-gradient(135deg, #eef5ff, #f7fcff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   MAIN CONTAINER (GLASS CARD)
+   ========================= */
+.container {
+  width: 420px;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  animation: popIn 0.7s ease;
+}
+
+/* =========================
+   HEADINGS
+   ========================= */
+h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f3a5f;
+  margin-bottom: 6px;
+}
+
+h3 {
+  text-align: center;
+  margin: 28px 0 10px;
+  font-size: 18px;
+  color: #2c4a6e;
+  position: relative;
+}
+
+h3::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #3fa9f5, #6fd6ff);
+  display: block;
+  margin: 6px auto 0;
+  border-radius: 10px;
+}
+
+/* =========================
+   COUNT BADGE
+   ========================= */
+.count {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 18px;
+  color: #4a6b8a;
+  background: #eef6ff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+/* =========================
+   INPUTS & SELECT
+   ========================= */
+input,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  margin-top: 14px;
+  border-radius: 12px;
+  border: 1px solid #d6e4f0;
+  font-size: 14px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #9ab0c6;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4aa3ff;
+  box-shadow: 0 0 0 4px rgba(74, 163, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   PRIMARY BUTTON
+   ========================= */
+button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #3fa9f5, #6fd6ff);
+  box-shadow:
+    0 12px 25px rgba(63, 169, 245, 0.35);
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 35px rgba(63, 169, 245, 0.45);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   SEARCH BOX
+   ========================= */
+.search {
+  margin-top: 22px;
+  border: 2px dashed #a8d8ff;
+  background: #f6fbff;
+}
+
+/* =========================
+   APPOINTMENT CARD
+   ========================= */
+.appointment {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, #ffffff, #f2f9ff);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #3fa9f5;
+  animation: slideUp 0.4s ease;
+}
+
+.appointment b {
+  font-size: 15px;
+  color: #1f3a5f;
+}
+
+/* =========================
+   DELETE BUTTON
+   ========================= */
+.delete-btn {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 13px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.35);
+}
+
+.delete-btn:hover {
+  box-shadow: 0 12px 25px rgba(255, 107, 107, 0.5);
+}
+
+/* =========================
+   TOAST MESSAGE
+   ========================= */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #2ecc71, #5ee6a8);
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+  box-shadow: 0 12px 25px rgba(46, 204, 113, 0.45);
+  animation: toastIn 0.3s ease;
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* STATUS BADGES */
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.status-badge.pending {
+  background: #f1c40f;
+}
+
+.status-badge.confirmed {
+  background: #2ecc71;
+}
+
+.status-badge.cancelled {
+  background: #e74c3c;
+}
+
+/* CARD BORDER BY STATUS */
+.appointment.pending {
+  border-left: 5px solid #f1c40f;
+}
+
+.appointment.confirmed {
+  border-left: 5px solid #2ecc71;
+}
+
+.appointment.cancelled {
+  border-left: 5px solid #e74c3c;
+}
